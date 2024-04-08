@@ -20,6 +20,22 @@ def bildCopyToBackup():
     input("Press key to continue")
     return
 
+def phoneGetFile():
+    print(" Getting the file")
+    input("Press key to continue")
+    return
+
+def phoneCleanData():
+    print(" ")
+    input("Press key to continue")
+    return
+    
+    
+def phoneCleanUp():
+    print(" ")
+    input("Press key to continue")
+    return
+
 # Create the menu
 #menu = ConsoleMenu("Stefans AB", "All Data Things")
 menu = ConsoleMenu(pyfiglet.figlet_format("Stefans AB"), "All Data Things")
@@ -31,17 +47,18 @@ menu = ConsoleMenu(pyfiglet.figlet_format("Stefans AB"), "All Data Things")
 
 
 telefonListaActionSubMenu = ConsoleMenu(pyfiglet.figlet_format("Telefonlista"), "Actions",exit_option_text="Back")
-telefonListaActionSubMenu.append_item( FunctionItem("Hämta grundfil", bildRapport) )
-telefonListaActionSubMenu.append_item( FunctionItem("Rensa data", bildStorleksKontroll) )
-telefonListaActionSubMenu.append_item( FunctionItem("Clean up", bildCopyToBackup) )
-submenu_item = SubmenuItem(color("Telefonlista","green"), telefonListaActionSubMenu, menu)
+telefonListaActionSubMenu.append_item( FunctionItem("Hämta grundfil", phoneGetFile) )
+telefonListaActionSubMenu.append_item( FunctionItem("Rensa data", phoneCleanData) )
+telefonListaActionSubMenu.append_item( FunctionItem("Clean up", phoneCleanUp) )
+submenu_item = SubmenuItem("Telefonlista", telefonListaActionSubMenu, menu)
 
 
 bilderActionSubMenu = ConsoleMenu(pyfiglet.figlet_format("Bilder"), "Actions",exit_option_text="Back")
+bilderActionSubMenu.append_item( FunctionItem("Generera thumbnails", bildRapport) )
 bilderActionSubMenu.append_item( FunctionItem("Bildrapport", bildRapport) )
 bilderActionSubMenu.append_item( FunctionItem("Storlekskontroll", bildStorleksKontroll) )
 bilderActionSubMenu.append_item( FunctionItem("Kopiera till backup", bildCopyToBackup) )
-submenu_item2 = SubmenuItem(color("Bilder","green"), bilderActionSubMenu, menu)
+submenu_item2 = SubmenuItem("Bilder", bilderActionSubMenu, menu)
 
 # Once we're done creating them, we just add the items to the menu
 menu.append_item(submenu_item)
